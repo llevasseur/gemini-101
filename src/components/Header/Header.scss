@@ -1,0 +1,48 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  width: 100%;
+  color: white;
+}
+
+.nav {
+  @include flex(column, space-between);
+  gap: 0.5rem;
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.navList {
+  width: 100%;
+  @include flex(row, space-around);
+
+  &__item {
+    width: 40%;
+    background: #323232;
+    border-radius: 1rem;
+    color: rgba(255, 255, 255, 0.589);
+    @include flex;
+
+    &:hover {
+      background: rgba(123, 206, 242, 0.135);
+      cursor: hover;
+      text-decoration: underline;
+      color: white;
+    }
+
+    &--active {
+      background: rgba(123, 206, 242, 0.135);
+      color: white;
+    }
+  }
+}
+
+.link {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 0 0.5rem 0;
+  @include flex;
+}
