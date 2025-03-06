@@ -1,3 +1,24 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 body {
   font-family: Roboto, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient($slate 12.5rem, $cloud 12.5rem);
+  @include flex(column, flex-start);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
