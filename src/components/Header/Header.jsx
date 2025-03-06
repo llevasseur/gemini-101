@@ -13,7 +13,7 @@ function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        <Link to="/">
+        <Link to="/" className="logo">
           <h2>🤖 GenMoji</h2>
         </Link>
         <ul className="navList">
