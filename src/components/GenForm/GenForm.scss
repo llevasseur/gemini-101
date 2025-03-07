@@ -10,7 +10,19 @@
     min-height: 50px;
     border-radius: 0.5rem;
     padding: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: rgb(168, 168, 168);
+    }
+
+    &--error {
+      border-color: rgb(230, 0, 0);
+    }
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 
   @include tablet {
@@ -19,5 +31,19 @@
 
   @include desktop {
     max-width: 1120px;
+  }
+}
+
+.error-block {
+  width: 100%;
+  padding: 0 0.5rem 0.5rem 0;
+  @include flex(row, flex-end);
+
+  &__text {
+    color: rgb(230, 0, 0);
+    height: 1rem;
+    &--hidden {
+      display: none;
+    }
   }
 }

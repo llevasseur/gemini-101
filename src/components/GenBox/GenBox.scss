@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+.gen-box {
+  width: 100%;
+  min-height: 350px;
+  max-width: 400px;
+  border: 1.5px solid black;
+  border-radius: 1rem;
+  @include flex;
+
+  @include tablet {
+    width: 50%;
+    min-width: 400px;
+    max-width: 600px;
+  }
+}

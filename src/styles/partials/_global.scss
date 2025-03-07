@@ -12,6 +12,19 @@ body {
   }
 }
 
+.toast-success-container {
+  background: "#34A853"
+}
+
+.toast-error-container {
+  background: "#EE0022";
+
+}
+
+.toast-info-container {
+  background: "#07F"
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
