@@ -4,11 +4,11 @@
 body {
   font-family: Roboto, sans-serif;
   min-height: 100vh;
-  background: linear-gradient($slate 12.5rem, $cloud 12.5rem);
+  background: linear-gradient($slate 13rem, $cloud 13rem);
   @include flex(column, flex-start);
 
   @include tablet {
-    background: linear-gradient($slate 10rem, $cloud 10rem);
+    background: linear-gradient($slate 11rem, $cloud 11rem);
   }
 }
 
@@ -25,4 +25,10 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+textarea {
+  resize: none;
+  font-family: inherit;
+  field-sizing: content;
 }

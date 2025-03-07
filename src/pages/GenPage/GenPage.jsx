@@ -1,8 +1,15 @@
+import PageTitle from "../../components/PageTitle/PageTitle";
+import "./GenPage.scss";
+import GenForm from "../../components/GenForm/GenForm";
+
 function GenPage() {
   return (
-    <main>
-      <h1>Gen Page</h1>
-    </main>
+    <>
+      <PageTitle text="Generate Emoji" />
+      <section className="gen-content">
+        <GenForm />
+      </section>
+    </>
   );
 }
 
