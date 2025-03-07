@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.about {
+  width: 100%;
+}
+
+
+.text-block {
+  @include flex(column, center, flex-start);
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
