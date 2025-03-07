@@ -3,7 +3,7 @@
 
 #root {
   width: 100%;
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 1rem;
   @include flex(column, flex-start);
   @include tablet {
@@ -20,7 +20,7 @@
   background: white;
   width: 100%;
   min-width: 300px;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   padding: 2rem 2rem;
   @include flex(column, flex-start, flex-start);
 
