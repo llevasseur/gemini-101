@@ -6,6 +6,10 @@ body {
   min-height: 100vh;
   background: linear-gradient($slate 12.5rem, $cloud 12.5rem);
   @include flex(column, flex-start);
+
+  @include tablet {
+    background: linear-gradient($slate 10rem, $cloud 10rem);
+  }
 }
 
 * {
