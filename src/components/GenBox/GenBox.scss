@@ -6,7 +6,7 @@
   max-width: 400px;
   border: 1.5px solid black;
   border-radius: 1rem;
-  @include flex;
+  @include flex(column);
 
   @include tablet {
     width: 50%;
@@ -19,6 +19,14 @@
     font-size: 4rem;
     @include tablet {
       font-size: 6rem;
+    }
+  }
+
+  &__prompt {
+    font-size: 1rem;
+    padding: 0 1rem;
+    @include tablet {
+      font-size: 1.5rem;
     }
   }
 }

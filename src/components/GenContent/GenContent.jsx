@@ -13,6 +13,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 function GenContent() {
   const [emoji, setEmoji] = useState("");
   const [errorText, setErrorText] = useState("");
+  const [prompt, setPrompt] = useState("");
   async function generateEmoji(prompt) {
     try {
       const response = await axios.post(`${API_URL}/api/gemini/emoji`, {
@@ -26,6 +27,7 @@ function GenContent() {
         transition: Slide,
       });
       setEmoji("❌");
+      setPrompt("");
       setErrorText(error.message);
     }
   }
@@ -33,12 +35,14 @@ function GenContent() {
   return (
     <>
       <section className="gen-content">
-        <GenBox emoji={emoji} />
+        <GenBox emoji={emoji} prompt={prompt} />
         <GenForm
           generateEmoji={generateEmoji}
           setEmoji={setEmoji}
           errorText={errorText}
           setErrorText={setErrorText}
+          prompt={prompt}
+          setPrompt={setPrompt}
         />
       </section>
       <ToastContainer />

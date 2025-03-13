@@ -1,7 +1,14 @@
 import { useState, useRef } from "react";
 import "./GenForm.scss";
 import errorIcon from "../../assets/icons/error-24px.svg";
-function GenForm({ generateEmoji, setEmoji, errorText, setErrorText }) {
+function GenForm({
+  generateEmoji,
+  setEmoji,
+  errorText,
+  setErrorText,
+  prompt,
+  setPrompt,
+}) {
   const [textareaInput, setTextareaInput] = useState("");
   const textareaRef = useRef();
 
@@ -14,6 +21,7 @@ function GenForm({ generateEmoji, setEmoji, errorText, setErrorText }) {
       }
       return event.target.value;
     });
+    setPrompt("");
 
     if (setErrorText) {
       setErrorText("");
@@ -39,16 +47,19 @@ function GenForm({ generateEmoji, setEmoji, errorText, setErrorText }) {
     setTextareaInput("");
     setErrorText("");
     setEmoji("👋");
+    setPrompt("");
   }
   function handleSubmit(event) {
     event.preventDefault();
     if (isFormValid()) {
       generateEmoji(textareaInput);
+      setPrompt(textareaInput);
       setTextareaInput("");
     } else {
       textareaRef.current.focus();
       setErrorText("Please enter a prompt");
       setEmoji("😤");
+      setPrompt("");
     }
   }
 
