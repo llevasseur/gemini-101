@@ -1,11 +1,20 @@
 import { useState, useRef } from "react";
 import "./GenForm.scss";
-function GenForm({ generateEmoji }) {
+import errorIcon from "../../assets/icons/error-24px.svg";
+function GenForm({ generateEmoji, setEmoji }) {
   const [textareaInput, setTextareaInput] = useState("");
   const textareaRef = useRef();
   const [errorText, setErrorText] = useState("");
   function handleTextareaChange(event) {
-    setTextareaInput(event.target.value);
+    setTextareaInput((prev) => {
+      if (!event.target.value) {
+        setEmoji("👋");
+      } else {
+        setEmoji("💬");
+      }
+      return event.target.value;
+    });
+
     if (setErrorText) {
       setErrorText("");
     }
@@ -22,15 +31,17 @@ function GenForm({ generateEmoji }) {
     event.preventDefault();
     setTextareaInput("");
     setErrorText("");
+    setEmoji("👋");
   }
   function handleSubmit(event) {
     event.preventDefault();
     if (isFormValid()) {
-      generateEmoji("test");
+      generateEmoji(textareaInput);
       setTextareaInput("");
     } else {
       textareaRef.current.focus();
       setErrorText("Please enter a prompt");
+      setEmoji("😤");
     }
   }
 
@@ -38,7 +49,10 @@ function GenForm({ generateEmoji }) {
     <form className="gen-form">
       <div className="error-block">
         {errorText ? (
-          <p className="error-block__text">🛑 {errorText}</p>
+          <>
+            <img alt="error icon" src={errorIcon} />
+            <p className="error-block__text">{errorText}</p>
+          </>
         ) : (
           <p className="error-block__text"></p>
         )}
