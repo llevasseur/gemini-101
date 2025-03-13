@@ -3,7 +3,7 @@
 
 #root {
   width: 100%;
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 1rem;
   @include flex(column, flex-start);
   @include tablet {
@@ -11,7 +11,7 @@
   }
 
   @include desktop {
-    max-width: 1264px;
+    max-width: 1284px;
   }
 }
 
@@ -19,7 +19,8 @@
   flex: 1;
   background: white;
   width: 100%;
-  border-radius: 0.5rem;
+  min-width: 300px;
+  border-radius: 1.5rem;
   padding: 2rem 2rem;
   @include flex(column, flex-start, flex-start);
 

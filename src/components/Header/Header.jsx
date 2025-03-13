@@ -14,7 +14,7 @@ function Header() {
     <header className="header">
       <nav className="nav">
         <Link to="/" className="logo">
-          <h2>🤖 GenMoji</h2>
+          <h2>🤖 GenMojit</h2>
         </Link>
         <ul className="navList">
           <li className={genClassName}>
