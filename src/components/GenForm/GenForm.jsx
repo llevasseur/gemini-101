@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
 import "./GenForm.scss";
 import errorIcon from "../../assets/icons/error-24px.svg";
-function GenForm({ generateEmoji, setEmoji }) {
+function GenForm({ generateEmoji, setEmoji, errorText, setErrorText }) {
   const [textareaInput, setTextareaInput] = useState("");
   const textareaRef = useRef();
-  const [errorText, setErrorText] = useState("");
+
   function handleTextareaChange(event) {
     setTextareaInput((prev) => {
       if (!event.target.value) {
@@ -17,6 +17,13 @@ function GenForm({ generateEmoji, setEmoji }) {
 
     if (setErrorText) {
       setErrorText("");
+    }
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Prevent new line
+      handleSubmit(e); // Submit form
     }
   }
 
@@ -68,6 +75,7 @@ function GenForm({ generateEmoji, setEmoji }) {
           value={textareaInput}
           placeholder="Type something and generate an emoji 😜"
           ref={textareaRef}
+          onKeyDown={handleKeyDown}
         ></textarea>
         <div className="gen-input__buttons">
           <div className="button-box">
