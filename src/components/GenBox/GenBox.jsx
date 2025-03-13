@@ -1,9 +1,12 @@
 import "./GenBox.scss";
 
-function GenBox() {
+function GenBox({ emoji }) {
+  if (!emoji) {
+    emoji = "👋";
+  }
   return (
     <section className="gen-box">
-      <h2>Gen Box</h2>
+      <h2 className="gen-box__emoji">{emoji}</h2>
     </section>
   );
 }

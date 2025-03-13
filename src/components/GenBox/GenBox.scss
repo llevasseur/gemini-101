@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 .gen-box {
   width: 100%;
-  min-height: 350px;
+  min-height: 200px;
   max-width: 400px;
   border: 1.5px solid black;
   border-radius: 1rem;
@@ -10,7 +10,15 @@
 
   @include tablet {
     width: 50%;
+    min-height: 350px;
     min-width: 400px;
     max-width: 600px;
+  }
+
+  &__emoji {
+    font-size: 4rem;
+    @include tablet {
+      font-size: 6rem;
+    }
   }
 }

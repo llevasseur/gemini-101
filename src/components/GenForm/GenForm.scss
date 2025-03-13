@@ -2,12 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .gen-form {
-  padding: 2rem 1rem;
   width: 100%;
-
-  @include tablet {
-    padding: 2rem;
-  }
 
   @include desktop {
     max-width: 1120px;
@@ -18,10 +13,12 @@
   width: 100%;
   padding: 0 0.5rem 0.5rem 0;
   @include flex(row, flex-end);
+  gap: 0.2rem;
+  height: 1.5rem;
 
   &__text {
     color: rgb(230, 0, 0);
-    height: 1rem;
+
     &--hidden {
       display: none;
     }

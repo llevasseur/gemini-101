@@ -1,13 +1,29 @@
 import { useState, useRef } from "react";
 import "./GenForm.scss";
-function GenForm({ generateEmoji }) {
+import errorIcon from "../../assets/icons/error-24px.svg";
+function GenForm({ generateEmoji, setEmoji, errorText, setErrorText }) {
   const [textareaInput, setTextareaInput] = useState("");
   const textareaRef = useRef();
-  const [errorText, setErrorText] = useState("");
+
   function handleTextareaChange(event) {
-    setTextareaInput(event.target.value);
+    setTextareaInput((prev) => {
+      if (!event.target.value) {
+        setEmoji("👋");
+      } else {
+        setEmoji("💬");
+      }
+      return event.target.value;
+    });
+
     if (setErrorText) {
       setErrorText("");
+    }
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Prevent new line
+      handleSubmit(e); // Submit form
     }
   }
 
@@ -22,15 +38,17 @@ function GenForm({ generateEmoji }) {
     event.preventDefault();
     setTextareaInput("");
     setErrorText("");
+    setEmoji("👋");
   }
   function handleSubmit(event) {
     event.preventDefault();
     if (isFormValid()) {
-      generateEmoji("test");
+      generateEmoji(textareaInput);
       setTextareaInput("");
     } else {
       textareaRef.current.focus();
       setErrorText("Please enter a prompt");
+      setEmoji("😤");
     }
   }
 
@@ -38,7 +56,10 @@ function GenForm({ generateEmoji }) {
     <form className="gen-form">
       <div className="error-block">
         {errorText ? (
-          <p className="error-block__text">🛑 {errorText}</p>
+          <>
+            <img alt="error icon" src={errorIcon} />
+            <p className="error-block__text">{errorText}</p>
+          </>
         ) : (
           <p className="error-block__text"></p>
         )}
@@ -54,6 +75,7 @@ function GenForm({ generateEmoji }) {
           value={textareaInput}
           placeholder="Type something and generate an emoji 😜"
           ref={textareaRef}
+          onKeyDown={handleKeyDown}
         ></textarea>
         <div className="gen-input__buttons">
           <div className="button-box">
