@@ -3,8 +3,10 @@
 
 body {
   font-family: Roboto, sans-serif;
+  height: 100%;
   min-height: 100vh;
   background: linear-gradient($slate 13rem, $cloud 13rem);
+  background-repeat: no-repeat;
   @include flex(column, flex-start);
 
   @include tablet {
@@ -13,16 +15,15 @@ body {
 }
 
 .toast-success-container {
-  background: "#34A853"
+  background: "#34A853";
 }
 
 .toast-error-container {
   background: "#EE0022";
-
 }
 
 .toast-info-container {
-  background: "#07F"
+  background: "#07F";
 }
 
 * {

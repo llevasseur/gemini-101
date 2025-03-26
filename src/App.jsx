@@ -4,6 +4,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import GenPage from "./pages/GenPage/GenPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }
