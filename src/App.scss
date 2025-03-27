@@ -1,44 +1,30 @@
 @use "./styles/partials/global";
+@use "./styles/partials/mixins" as *;
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  width: 100%;
+  min-height: 50vh;
+  padding: 1rem;
+  @include flex(column, flex-start);
+  @include tablet {
+    padding: 1rem 2rem 1rem 2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  @include desktop {
+    max-width: 1284px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.main-content {
+  flex: 1;
+  background: white;
+  width: 100%;
+  min-width: 300px;
+  border-radius: 1.5rem;
+  padding: 2rem 2rem;
+  @include flex(column, flex-start, flex-start);
+
+  @include tablet {
+    padding: 2rem 3rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

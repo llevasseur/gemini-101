@@ -1,3 +1,47 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 body {
   font-family: Roboto, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient($slate 13rem, $cloud 13rem);
+  @include flex(column, flex-start);
+
+  @include tablet {
+    background: linear-gradient($slate 11rem, $cloud 11rem);
+  }
+}
+
+.toast-success-container {
+  background: "#34A853"
+}
+
+.toast-error-container {
+  background: "#EE0022";
+
+}
+
+.toast-info-container {
+  background: "#07F"
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+textarea {
+  resize: none;
+  font-family: inherit;
+  field-sizing: content;
 }

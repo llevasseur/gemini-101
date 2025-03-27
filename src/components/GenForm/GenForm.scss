@@ -1,0 +1,88 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.gen-form {
+  width: 100%;
+
+  @include desktop {
+    max-width: 1120px;
+  }
+}
+
+.error-block {
+  width: 100%;
+  padding: 0 0.5rem 0.5rem 0;
+  @include flex(row, flex-end);
+  gap: 0.2rem;
+  height: 1.5rem;
+
+  &__text {
+    color: rgb(230, 0, 0);
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
+
+.gen-input {
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  width: 100%;
+  min-height: 150px;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border 0.1s, box-shadow 0.1s;
+  @include flex(column, space-around, flex-start);
+  &__textarea {
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.2;
+    min-height: 4.5rem;
+    border-radius: 2rem;
+    border: hidden;
+
+    &::placeholder {
+      color: rgb(168, 168, 168);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+  &:focus-within {
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &__buttons {
+    width: 100%;
+    @include flex(row, flex-end, space-between);
+  }
+}
+
+.button-box {
+  width: 40%;
+  max-width: 120px;
+  padding: 1rem;
+  @include flex(row, space-around);
+  &__gen-icon {
+    width: 2rem;
+    @include tablet {
+      width: 3rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      border-radius: 4rem;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+  @include tablet {
+    max-width: 160px;
+  }
+}
